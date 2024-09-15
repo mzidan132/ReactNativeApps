@@ -1,0 +1,73 @@
+jdk bin cd
+keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-key-alias
+android studio appdata to sdk env var sys below new path zipalign
+zipalign -v -p 4 universal.apk aligned.apk
+create double copy of aligned.apk then rename
+apksigner sign --ks my-release-key.jks --out signs.apk app.apk
+apksigner verify signed.apk
+download bundletool jar
+aab to apk direct sign no apksigner needed
+java -jar bundletool-all-1.17.1.jar build-apks --bundle=counter.aab --output=myapp.apks --ks=my-release-key.jks --ks-key-alias=my-key-alias --ks-pass=pass:12312312 --key-pass=pass:12312312 --mode=universal
+aab auto signed by expo hurray
+
+Creating a React Native Expo App
+
+npm install -g expo-cli
+Use code with caution.
+
+Create a new Expo project:
+Bash
+expo init MyExpoApp
+Use code with caution.
+
+Replace MyExpoApp with your desired project name.
+Navigate to the project directory:
+Bash
+cd MyExpoApp
+Use code with caution.
+
+Start the development server:
+Bash
+npx expo start
+
+app: Contains your app's code.
+screens: Contains individual screens or components.
+assets: Stores images, fonts, and other static assets.
+components: Reusable UI components.
+package.json: Manages project dependencies.
+babel.config.js: Configures Babel for code transformation.
+app.json: Contains app-level configuration (name, icon, etc.).
+Building the App
+Expo provides several ways to build your app for production:
+
+For more in-depth information and tutorials, refer to the official Expo documentation: https://docs.expo.dev/
+
+Install EAS CLI:
+Bash
+npm install -g eas-cli
+Use code with caution.
+
+Log in to your Expo account:
+Bash
+eas login
+Use code with caution.
+
+Configure your project for building:
+Bash
+eas build:configure --platform android
+Use code with caution.
+
+Start the build:
+Bash
+eas build --platform android
+
+
+
+
+
+
+
+
+
+
+
